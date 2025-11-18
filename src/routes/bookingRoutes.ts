@@ -1,5 +1,6 @@
 import router from 'express'
 import { createBooking } from '../services/createBooking'
+import { cancelBooking } from '../services/cancelBooking';
 export const bookingRouter=router()
 
 
@@ -17,4 +18,21 @@ bookingRouter.post("/book",(req,res)=>{
         res.json(`msg:your booking was not confirmed ${error}`)
         
     }
+})
+
+
+bookingRouter.post("/:id/cancel",(req,res)=>{
+    try {
+        const id=req.params.id
+        const result= cancelBooking(id)
+        res.json({
+            msg:"Your cancellation was successful"
+
+        })
+
+    } catch (error) {
+        res.json(error)
+        
+    }
+
 })
