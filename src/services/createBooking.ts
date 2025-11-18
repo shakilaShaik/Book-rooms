@@ -3,6 +3,8 @@ import { hasConflict } from "../utils/checkConflict";
 import { minutesBetween } from "../utils/timeconversion";
 import { BookingModel } from "../models/BookingModel";
 import { bookings } from "../data/Booking";
+
+import { computePrice } from "../utils/calcPrice";
 function generateId() {
   return Math.random().toString(36).substring(2, 8);
 }
@@ -14,6 +16,8 @@ export function createBooking(payload: {
     startTime: string;
     endTime: string;
   }) {
+    console.log(payload);
+    console.log("the booking array was", bookings);
     const room = rooms.find((r) => r.id === payload.roomId);
     if (!room) throw new Error("Room not found");
   
@@ -40,7 +44,7 @@ export function createBooking(payload: {
       totalPrice: Number(price.toFixed(2)),
       status: "CONFIRMED"
     };
-  
+   console.log("the booking made was", booking);
     bookings.push(booking);
     return booking;
   }
