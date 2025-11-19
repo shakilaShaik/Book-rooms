@@ -6,11 +6,13 @@ export const getAllBookings = async () => {
 };
 
 export const cancelBooking = async (id: string) => {
-  const res = await api.delete(`/admin/bookings/${id}`);
+  const res = await api.get(`/api/bookings/${id}/cancel`);
   return res.data;
 };
 
-export const getAnalytics = async () => {
-  const res = await api.get("/admin/analytics");
-  return res.data;
+export const getAnalytics = async (from?: string, to?: string) => {
+  const res = await api.get("/api/analytics", {
+    params: { from, to },
+  });
+  return res.data.msg;
 };

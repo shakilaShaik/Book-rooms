@@ -28,6 +28,9 @@ export function createBooking(payload: {
   // parse as local dates
   const start = parseLocalDateTime(payload.start);
   const end = parseLocalDateTime(payload.end);
+const now = parseLocalDateTime(formatLocalDateTime(new Date()));
+if (start < now)
+  throw { status: 400, message: "Booking start time must be in the future" };
 
   if (start >= end) throw { status: 400, message: "start must be before end" };
 

@@ -3,6 +3,7 @@ import { bookingRouter } from "./routes/bookingRoutes";
 import { seedRooms } from "./data/roomSeed";
 import { rooms } from "./data/roomSeed";
 import cors from 'cors'
+import { adminRouter } from "./routes/adminRoutes";
 
 const app = express();
 app.use(cors({
@@ -12,7 +13,8 @@ app.use(cors({
 app.use(express.json())
 
 seedRooms()
-app.use("/api",bookingRouter)
+app.use("/api", bookingRouter)
+app.use("/admin",adminRouter)
 
 app.get("/", (req: Request, res: Response) => {
     res.send("App is running");

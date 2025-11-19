@@ -20,9 +20,11 @@ export const useCancelBooking = () => {
   }});
 };
 
-export const useAnalytics = () => {
+
+export const useAnalytics = (from?: string, to?: string) => {
   return useQuery({
-    queryKey: ["admin-analytics"],
-    queryFn: getAnalytics,
+    queryKey: ["admin-analytics", from, to],
+    queryFn: () => getAnalytics(from, to),
+    enabled: !!from && !!to, // only fetch if both dates are selected
   });
 };
