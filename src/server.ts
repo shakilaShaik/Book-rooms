@@ -5,7 +5,7 @@ import { seedRooms } from "./data/roomSeed";
 const app = express();
 app.use(express.json())
 seedRooms()
-app.use("/",bookingRouter)
+app.use("/api",bookingRouter)
 
 app.get("/", (req: Request, res: Response) => {
     res.send("App is running");
