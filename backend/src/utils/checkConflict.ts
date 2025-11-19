@@ -1,14 +1,13 @@
-// / Check overlapping with existing bookings
+import { bookings } from "../data/bookings";
+import { parseLocalDateTime } from "./timeconversion";
 
-import { bookings } from "../data/Booking";
+/** returns true if conflict exists */
 export function hasConflict(roomId: string, start: Date, end: Date) {
   return bookings.some((b) => {
     if (b.roomId !== roomId || b.status === "CANCELLED") return false;
-
-    const bs = new Date(b.startTime);
-    const be = new Date(b.endTime);
-
-    // conflict: start < existingEnd && end > existingStart
+    const bs = parseLocalDateTime(b.startTime);
+    const be = parseLocalDateTime(b.endTime);
+    // overlap: start < existingEnd && end > existingStart
     return start < be && end > bs;
   });
 }

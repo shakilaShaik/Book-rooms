@@ -4,14 +4,15 @@
 # Content-Type: application/json
 
 # {
-#   "roomId": "102",
+#   "roomId": "103",
 #   "userName": "Priya",
-#   "startTime": "2025-11-21T12:30:00.000Z",
-#   "endTime": "2025-11-21T14:12:00.000Z"
+#   "start": "2025-11-20T17:30",
+#   "end": "2025-11-20T19:12"
 # }
 
-# # POST http://localhost:3000/n7jnrs/cancel HTTP/1.1
+# POST http://localhost:3000/api/bookings/865b4/cancel HTTP/1.1
 
 
-GET  http://localhost:3000/api/analytics?from=2025-11-20T10:30:00.000Z&to=2025-11-21T10:30:00.000Z
+
+GET  http://localhost:3000/api/analytics?from=2025-11-20T10:30:00.000Z&to=2025-11-22T22:30:00.000Z
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useBookRoom } from "../hooks/useBookRoom";
+import toast from "react-hot-toast";
 
 export default function BookingForm({ roomId }: { roomId: string }) {
   const mutation = useBookRoom();
@@ -20,8 +21,9 @@ export default function BookingForm({ roomId }: { roomId: string }) {
     mutation.mutate(
       { ...form, roomId },
       {
-        onSuccess: () => alert("Room booked!"),
-        onError: (err: any) => alert(err.response?.data?.message || "Error"),
+        onSuccess: () => toast.success("Room booked successfully!"),
+        onError: (err: any) =>
+          toast.error(err.response?.data?.msg || "Something went wrong")
       }
     );
   };

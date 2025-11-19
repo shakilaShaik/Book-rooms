@@ -13,6 +13,6 @@ import { api } from "./axios";
 
 }
 export const bookRoom = async (data:bookdata) => {
-  const res = await api.post("/bookings", data);
+  const res = await api.post("/api/bookings", data);
   return res.data;
 };

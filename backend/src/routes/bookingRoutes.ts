@@ -21,7 +21,7 @@ bookingRouter.post("/bookings",(req,res)=>{
 })
 
 
-bookingRouter.post("bookings/:id/cancel",(req,res)=>{
+bookingRouter.post("/bookings/:id/cancel",(req,res)=>{
     try {
         const id=req.params.id
         const result= cancelBooking(id)

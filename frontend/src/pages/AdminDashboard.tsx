@@ -1,16 +1,23 @@
 import { useAdminBookings, useCancelBooking, useAnalytics } from "../hooks/useAdmin";
+import toast from "react-hot-toast";
 
 export default function AdminDashboard() {
   const { data: bookings, isLoading: loadingBookings } = useAdminBookings();
   const { data: analytics, isLoading: loadingAnalytics } = useAnalytics();
   const cancelMutation = useCancelBooking();
 
+  const cancelBooking = (id: string) => {
+    cancelMutation.mutate(id, {
+      onSuccess: () => toast.success("Booking cancelled"),
+      onError: () => toast.error("Failed to cancel booking"),
+    });
+  };
+
   if (loadingBookings || loadingAnalytics) return <p>Loading...</p>;
 
   return (
     <div className="p-8 space-y-10">
 
-      {/* TITLE */}
       <h1 className="text-3xl font-bold">Admin Dashboard</h1>
 
       {/* BOOKINGS TABLE */}
@@ -39,7 +46,7 @@ export default function AdminDashboard() {
                 <td className="border p-2">₹{b.price}</td>
                 <td className="border p-2">
                   <button
-                    onClick={() => cancelMutation.mutate(b.id)}
+                    onClick={() => cancelBooking(b.id)}
                     className="px-3 py-1 bg-red-600 text-white rounded"
                   >
                     Cancel
@@ -51,7 +58,7 @@ export default function AdminDashboard() {
         </table>
       </div>
 
-      {/* ANALYTICS TABLE */}
+      {/* ANALYTICS */}
       <div>
         <h2 className="text-2xl font-semibold mb-4">Analytics</h2>
 
