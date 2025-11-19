@@ -28,6 +28,8 @@ export function getAnalytics(from?: string, to?: string) {
     // only add room if it has at least one confirmed booking
     if (!roomMap.has(b.roomId)) {
       const room = rooms.find((r) => r.id === b.roomId);
+      console.log("the rooms are",room);
+      // console.log("the room prices are", bookings.totalPrice);
       if (!room) continue; // safety check
       roomMap.set(b.roomId, {
         roomId: room.id,

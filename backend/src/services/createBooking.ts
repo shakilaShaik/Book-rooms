@@ -42,6 +42,7 @@ export function createBooking(payload: {
 
   // price
   const totalPrice = computePrice(start, end, room.baseHourlyRate);
+  console.log("the total price after booking", totalPrice);
  const bookingId = randomUUID();
   // store times as formatted local strings (YYYY-MM-DDTHH:mm)
   const booking: BookingModel = {
