@@ -1,0 +1,17 @@
+# GET http://localhost:3000
+
+# POST http://localhost:3000/api/bookings
+# Content-Type: application/json
+
+# {
+#   "roomId": "102",
+#   "userName": "Priya",
+#   "startTime": "2025-11-21T12:30:00.000Z",
+#   "endTime": "2025-11-21T14:12:00.000Z"
+# }
+
+# # POST http://localhost:3000/n7jnrs/cancel HTTP/1.1
+
+
+GET  http://localhost:3000/api/analytics?from=2025-11-20T10:30:00.000Z&to=2025-11-21T10:30:00.000Z
+
