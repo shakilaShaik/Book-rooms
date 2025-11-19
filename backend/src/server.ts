@@ -4,10 +4,12 @@ import { seedRooms } from "./data/roomSeed";
 import { rooms } from "./data/roomSeed";
 import cors from 'cors'
 import { adminRouter } from "./routes/adminRoutes";
-
+import * as dotenv from "dotenv";  // <- notice the `* as`
+dotenv.config();                  // <- call config(), 
 const app = express();
+const Frontend_url=process.env.FRONTEND_URL
 app.use(cors({
-    origin: 'http://localhost:5173', // your frontend URL
+    origin: Frontend_url, // your frontend URL
   }));
   
 app.use(express.json())
