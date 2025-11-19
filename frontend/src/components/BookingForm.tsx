@@ -6,7 +6,7 @@ export default function BookingForm({ roomId }: { roomId: string }) {
   const mutation = useBookRoom();
 
   const [form, setForm] = useState({
-    name: "",
+    userName: "",
     email: "",
     phone: "",
     start: "",
@@ -30,7 +30,7 @@ export default function BookingForm({ roomId }: { roomId: string }) {
 
   return (
     <div className="p-4 bg-white shadow rounded-xl space-y-4">
-      <input name="name" placeholder="Name" className="input" onChange={handleChange} />
+      <input name="userName" placeholder="Name" className="input" onChange={handleChange} />
       <input name="email" placeholder="Email" className="input" onChange={handleChange} />
       <input name="phone" placeholder="Phone" className="input" onChange={handleChange} />
 

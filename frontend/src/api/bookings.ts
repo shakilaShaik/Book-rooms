@@ -5,7 +5,7 @@ import { api } from "./axios";
  interface bookdata{
      
   roomId: string;
-  name: string;
+  userName: string;
   email: string;
   phone: string;
   start: string;
