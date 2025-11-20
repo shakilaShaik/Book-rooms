@@ -20,7 +20,7 @@ A mini full-stack application for booking co-working meeting rooms by the hour w
 
 ## Live Demo
 
-- **URL:** book-rooms.vercel.app  
+- **URL:**- https://book-rooms.vercel.app  
 
 
 ---
