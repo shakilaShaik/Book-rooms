@@ -20,8 +20,8 @@ A mini full-stack application for booking co-working meeting rooms by the hour w
 
 ## Live Demo
 
-- **Frontend:** [https://your-frontend-url.netlify.app](https://your-frontend-url.netlify.app)  
-- **Backend:** [https://your-backend-url.onrender.com](https://your-backend-url.onrender.com)
+- **URL:** book-rooms.vercel.app  
+
 
 ---
 
