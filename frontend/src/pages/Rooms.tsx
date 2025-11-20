@@ -29,6 +29,7 @@ export default function Rooms() {
             <div key={room.id} className="p-5 bg-gray-100 rounded-xl shadow">
               <h2 className="text-xl font-semibold mb-1">{room.name}</h2>
               <p className="text-gray-600 mb-4">Capacity: {room.capacity}</p>
+              <p className="text-black-700 mb-4"> Price: {room.baseHourlyRate}</p>
 
               <BookingForm roomId={room.id} />
             </div>
